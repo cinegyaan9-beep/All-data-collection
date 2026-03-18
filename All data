@@ -1,0 +1,113 @@
+import time
+import random
+import sys
+
+# Colors
+GREEN = "\033[1;32m"
+RED = "\033[1;31m"
+CYAN = "\033[1;36m"
+YELLOW = "\033[1;33m"
+RESET = "\033[0m"
+
+# Fake totals
+total_images = random.randint(5000, 20000)
+total_videos = random.randint(500, 3000)
+total_docs = random.randint(1000, 10000)
+total_whatsapp = random.randint(2000, 15000)
+total_instagram = random.randint(1000, 8000)
+total_calls = random.randint(100, 1000)
+
+# Transfer fake size (MB)
+total_data = random.randint(5000, 20000)  # MB
+transferred = 0
+
+# Counters
+images = videos = docs = 0
+whatsapp = instagram = calls = 0
+
+print(CYAN + "Initializing Secure Server...\n" + RESET)
+time.sleep(2)
+
+print(YELLOW + "Connecting to remote database..." + RESET)
+time.sleep(2)
+
+# Loading animation
+for i in range(10):
+    sys.stdout.write("\rConnecting " + "." * (i % 4))
+    sys.stdout.flush()
+    time.sleep(0.5)
+
+print("\n" + RED + "Access Denied ❌" + RESET)
+time.sleep(2)
+
+print(YELLOW + "Bypassing Security..." + RESET)
+time.sleep(3)
+
+print(GREEN + "Access Granted ✔\n" + RESET)
+time.sleep(2)
+
+# Main loop (2 दिन feel)
+for i in range(17280):
+
+    # Data counting
+    images += random.randint(1, 5)
+    videos += random.randint(0, 2)
+    docs += random.randint(1, 3)
+    whatsapp += random.randint(1, 4)
+    instagram += random.randint(1, 3)
+    calls += random.randint(0, 1)
+
+    # Transfer speed (fake)
+    speed = random.randint(1, 10)  # MB/sec
+    transferred += speed
+    transferred = min(transferred, total_data)
+
+    # Limits
+    images = min(images, total_images)
+    videos = min(videos, total_videos)
+    docs = min(docs, total_docs)
+    whatsapp = min(whatsapp, total_whatsapp)
+    instagram = min(instagram, total_instagram)
+    calls = min(calls, total_calls)
+
+    # % progress (95% stuck effect)
+    progress = (i / 17280) * 100
+    if progress > 95:
+        progress = 95 + random.random() * 0.5
+
+    # Transfer bar
+    bar_length = 20
+    filled = int((transferred / total_data) * bar_length)
+    bar = "█" * filled + "-" * (bar_length - filled)
+
+    # Output
+    sys.stdout.write(
+        f"\r{GREEN}Progress: {progress:.2f}%\n"
+        f"Images: {images}/{total_images} | Videos: {videos}/{total_videos}\n"
+        f"Docs: {docs}/{total_docs} | WhatsApp: {whatsapp}/{total_whatsapp}\n"
+        f"Instagram: {instagram}/{total_instagram} | Calls: {calls}/{total_calls}\n\n"
+        f"{CYAN}Data Transfer: [{bar}] {transferred}/{total_data} MB  ({speed} MB/s){RESET}"
+    )
+    sys.stdout.flush()
+
+    # Random logs
+    logs = [
+        "Decrypting media files...",
+        "Injecting payload...",
+        "Scanning hidden folders...",
+        "Extracting WhatsApp database...",
+        "Tracking Instagram cache...",
+        "Analyzing call recordings...",
+        "Bypassing encryption..."
+    ]
+
+    print("\n" + YELLOW + random.choice(logs) + RESET)
+
+    time.sleep(10)
+
+# Final jump
+for p in [96, 97, 98, 99, 100]:
+    print(f"\r{GREEN}Finalizing... {p}%{RESET}")
+    time.sleep(1)
+
+print("\n" + GREEN + "Data Extraction Completed Successfully ✔" + RESET)
